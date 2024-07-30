@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %} Fornecedores {% endblock title %}</title>
+</head>
+<body>
+    {% block content %}
+    <table>
+        <caption>Fornecedores</caption>
+        <caption class="cadastrar-produto">
+            <a class="cadastrar-produto" href="{% url "Cadastro_fornecedor" %}">Cadastrar novo fornecedor</a>
+        </caption>
+        <center>
+            <form class="search-form" method="get" action="{% url 'Listar_fornecedores' %}">
+                <input type="text" name="q" placeholder="Pesquisar fornecedor" value="{{ request.GET.q }}" class="search-input">
+                <button type="submit" class="search-button">Pesquisar</button>
+            </form>
+        </center>
+        <thead>
+            <tr>
+                <th class="titulo-tabela">Nome</th>
+                <th class="titulo-tabela">Telefone</th>
+                <th class="titulo-tabela">Email</th>
+                <th class="titulo-tabela">Resumo</th>
+                <th class="titulo-tabela">Ações</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for fornecedor in fornecedores %}
+            <tr>
+                <td class="campo" data-label="Nome">
+                    <a class="nome" href="{% url "Detalhes_fornecedor" fornecedor.pk %}">{{ fornecedor.nome }}</a>
+                </td>
+                <td class="campo" data-label="Telefone">{{ fornecedor.telefone }}</td>
+                <td class="campo" data-label="Email">{{ fornecedor.email }}</td>
+                <td class="campo" data-label="Resumo">{{ fornecedor.resumo }}</td>
+                <td class="campo" data-label="Ações">
+                    <a class="a-editar" href="{% url "Editar_fornecedor" fornecedor.pk %}">Editar</a>
+                    <a class="a-excluir" href="{% url "Deletar_fornecedor" fornecedor.pk %}">Excluir</a>
+                </td>
+            </tr>
+            {% empty %}
+            <tr>
+                <td colspan="3">Nenhum fornecedor encontrado.</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    {% endblock content %}
+</body>
+</html>

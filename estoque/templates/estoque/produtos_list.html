@@ -1,0 +1,62 @@
+{% extends "base.html" %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> {% block title  %} Produtos {% endblock title  %}</title>
+
+</head>
+<body>
+    {% block content %}
+
+    <table>
+        <caption>Produtos</caption>
+        <caption class="cadastrar-produto"><a class="cadastrar-produto" href="{% url "Cadastro_produto" %}">Cadastrar novo produto</a></caption>
+        
+        <center>
+        <form class="search-form" method="get" action="{% url 'Listar_produtos' %}">
+            <input type="text" name="q" placeholder="Pesquisar produtos" value="{{ request.GET.q }}" class="search-input">
+            <button type="submit" class="search-button">Pesquisar</button>
+        </form>
+    </center>
+        <thead>
+            <tr>
+                <th class="titulo-tabela">Nome</th>
+                <th class="titulo-tabela">Fornecedor</th>
+                <th class="titulo-tabela">Quantidade</th>
+                <th class="titulo-tabela">Valor de compra</th>
+                <th class="titulo-tabela">Valor de venda</th>
+                <th class="titulo-tabela">Ações</th>
+                <th class="titulo-tabela">Estoque</th>
+               
+            </tr>
+        </thead>
+        <tbody>
+            {% for produto in produtos %}
+            <tr>
+                <td class="campo" data-label="Nome"><a class="nome" href="{% url "Detalhes_produto" produto.pk %}">{{ produto.nome }}</a></td>
+                <td class="campo" data-label="Fornecedor">{{ produto.fornecedor }}</td>
+                <td class="campo" data-label="Quantidade">{{ produto.quantidade }}</td>
+                <td class="campo" data-label="Valor de compra">R$ {{ produto.valor_compra }}</td>
+                <td class="campo" data-label="Valor de venda">R$ {{ produto.valor_venda }}</td>
+                <td class="campo" data-label="Ações">
+                    <a class="a-editar" href="{% url "Editar_produto" produto.pk %}">Editar</a>
+                    <a class="a-excluir" href="{% url "Deletar_produto" produto.pk %}">Excluir</a>
+                </td>
+                <td class="campo" data-label="Estoque">
+                    <a class="a-editar" href="{% url "registrar_entrada" produto.pk %}">Entrada</a>
+                    <a class="a-excluir" href="{% url "registrar_saida" produto.pk %}">Saida</a>
+                </td>
+            </tr>
+            {% empty %}
+            <tr>
+                <td colspan="3">Nenhum produto encontrado.</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    {% endblock content %}
+</body>
+</html>

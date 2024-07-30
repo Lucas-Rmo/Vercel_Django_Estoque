@@ -1,0 +1,70 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Controle de estoque{% endblock title %}
+{% block content %}
+
+<center>
+<h1>Controle de estoque </h1>
+
+<p>
+Feito com Python,Django,Html e Css<br><br><br>
+
+
+<div class="container">
+    <h1>Funções do Aplicativo</h1>
+    <ul class="features-list">
+        <li>Login e Logout;</li><br>
+        <li>Bloqueio das funções até o usuário estar logado (se ele tentar acessar alguma página ele é redirecionado);</li><br>
+        <li>Criação, edição, remoção e listagem de Clientes;</li><br>
+        <li>Criação, edição, remoção e listagem de Fornecedores;</li><br>
+        <li>Criação, edição, remoção e listagem de Produtos;</li><br>
+        <li>Pesquisa e filtro de Produtos,Clientes e Fornecedores;</li><br>
+        <li>Exibição do histórico de entrada e saída de produtos.</li><br>
+    </ul>
+    <br>
+    <br><br>Feito por Lucas:<br><br>
+
+    <a class="links"href="https://github.com/Lucas-Rmo">GitHub</a><br><br>
+    <a class="links"href="https://br.linkedin.com/in/lucas-romero-2540a6141">Linkedin</a><br>
+
+    <h1>Algumas imagens da aplicação web:</h1>
+    <div class="image-slider">
+        <div class="slides">
+            <div class="slide">
+                <img src="{% static 'imagens_site/Tela_Login.png' %}" alt="Imagem 1">
+            </div>
+            <div class="slide">
+                <img src="{% static 'imagens_site/Tela_Criar_Conta.png' %}" alt="Imagem 2">
+            </div>
+            <div class="slide">
+                <img src="{% static 'imagens_site/Listar_produtos.png' %}" alt="Imagem 3">
+            </div>
+            <div class="slide">
+                <img src="{% static 'imagens_site/Pag_inicial.png' %}" alt="Imagem 3">
+            </div>
+            <div class="slide">
+                <img src="{% static 'imagens_site/Listar_fornecedores.png' %}" alt="Imagem 3">
+            </div>
+            <div class="slide">
+                <img src="{% static 'imagens_site/Lista_Entradas.png' %}" alt="Imagem 3">
+            </div>
+            <div class="slide">
+                <img src="{% static 'imagens_site/Lista_Saidas.png' %}" alt="Imagem 3">
+            </div>
+            <div class="slide">
+                <img src="{% static 'imagens_site/Listar_Clientes.png' %}" alt="Imagem 3">
+            </div>
+            <div class="slide">
+                <img src="{% static 'imagens_site/Cadastro_Fornecedor.png' %}" alt="Imagem 3">
+            </div>
+            <div class="slide">
+                <img src="{% static 'imagens_site/Excluir_Fornecedor.png' %}" alt="Imagem 3">
+            </div>
+        </div>
+    </div>
+</div>
+</p>
+
+</center>
+{% endblock content %}

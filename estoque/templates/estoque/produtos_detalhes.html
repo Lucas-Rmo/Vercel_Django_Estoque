@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+
+{% block content %}
+<center>
+<div class="container">
+    <h2 class="page-title">Detalhes do produto</h2>
+
+    <div class="detail-group">
+        <p class="detail-title">Nome:</p>
+        <p class="detail-content">{{ produto.nome }}</p>
+    </div>
+
+    <div class="detail-group">
+        <p class="detail-title">Fornecedor:</p>
+        <p class="detail-content">{{ produto.fornecedor }}</p>
+    </div>
+
+    <div class="detail-group">
+        <p class="detail-title">Quantidade:</p>
+        <p class="detail-content">{{ produto.quantidade }}</p>
+    </div>
+
+    <div class="detail-group">
+        <p class="detail-title">Valor de compra:</p>
+        <p class="detail-content">R$ {{ produto.valor_compra }}</p>
+    </div>
+
+    <div class="detail-group">
+        <p class="detail-title">Valor de venda:</p>
+        <p class="detail-content">R$ {{ produto.valor_venda }}</p>
+    </div>
+
+    <div class="detail-group">
+        <p class="detail-title">Descrição:</p>
+        {% if produto.descricao == "" %}
+        <p class="detail-content">Nenhuma descrição adicionada.</p>
+        {% else %}
+        <p class="detail-content">{{ produto.descricao }}</p>
+        {% endif %}
+        
+    </div>
+
+    <a href="{% url 'Listar_produtos' %}" class="btn btn-secondary">Voltar</a>
+</div>
+</center>
+{% endblock content %}

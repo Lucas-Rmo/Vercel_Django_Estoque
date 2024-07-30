@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> {% block title  %} Clientes {% endblock title  %}</title>
+</head>
+<body>
+    {% block content %}
+    <table>
+        <caption>Clientes</caption>
+        <caption class="cadastrar-produto"><a class="cadastrar-produto" href="{% url "Cadastro_cliente" %}">Cadastrar novo cliente</a></caption>
+        <center>
+            <form class="search-form" method="get" action="{% url 'Listar_clientes' %}">
+                <input type="text" name="q" placeholder="Pesquisar clientes" value="{{ request.GET.q }}" class="search-input">
+                <button type="submit" class="search-button">Pesquisar</button>
+            </form>
+        </center>
+        
+        
+        <thead>
+            <tr>
+                <th class="titulo-tabela">Nome</th>
+                <th class="titulo-tabela">Telefone</th>
+                <th class="titulo-tabela">Email</th>
+                <th class="titulo-tabela">Ações</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for cliente in clientes %}
+            <tr>
+                <td class="campo" data-label="Nome"><a class="nome" href="{% url "Detalhes_cliente" cliente.pk %}">{{ cliente.nome }}</a></td>
+                <td class="campo" data-label="Telefone">{{ cliente.telefone }}</td>
+                <td class="campo" data-label="Email">{{ cliente.email }}</td>
+                <td class="campo" data-label="Ações">
+                    <a class="a-editar" href="{% url "Editar_cliente" cliente.pk %}">Editar</a>
+                    <a class="a-excluir" href="{% url "Deletar_cliente" cliente.pk %}">Excluir</a>
+                </td>
+            </tr>
+            {% empty %}
+            <tr>
+                <td colspan="3">Nenhum cliente encontrado.</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    {% endblock content %}
+</body>
+</html>

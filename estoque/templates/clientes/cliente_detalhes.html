@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% block content %}
+<center>
+<div class="container">
+    <h2 class="page-title">Detalhes do Cliente</h2>
+
+    <div class="detail-group">
+        <p class="detail-title">Nome:</p>
+        <p class="detail-content">{{ cliente.nome }}</p>
+    </div>
+
+    <div class="detail-group">
+        <p class="detail-title">Telefone:</p>
+        {% if cliente.telefone == "" %}
+        <p class="detail-content">Nenhum telefone adicionado</p>
+        {% else %}
+        <p class="detail-content">{{ cliente.telefone }}</p>
+        {% endif %}
+
+    </div>
+
+    <div class="detail-group">
+        <p class="detail-title">Email:</p>
+        {% if cliente.email == "" %}
+        <p class="detail-content">Nenhum e-mail adicionado</p>
+        {% else %}
+        <p class="detail-content">{{ cliente.email }}</p>
+        {% endif %}
+    </div>
+
+    <a href="{% url 'Listar_clientes' %}" class="btn btn-secondary">Voltar</a>
+</div>
+</center>
+{% endblock content %}

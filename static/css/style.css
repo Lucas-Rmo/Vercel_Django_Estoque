@@ -1,0 +1,554 @@
+/* Estilos Gerais */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f5f5f5; /* Cinza claro */
+}
+
+/* Estilos da Tabela */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    background-color: #ffffff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border: 2px solid #dddddd; /* Cinza claro */
+}
+
+.cadastrar-produto {
+    font-size: 1em;
+    font-weight: bold;
+    text-decoration: none;
+    background-color: #f5f5f5;
+    color: #333333; /* Cinza escuro */
+}
+
+.cadastrar-produto:hover {
+    transition: 0.3s;
+    background-color: #f5f5f5;
+    color: #2c5f2d; /* Verde mais escuro */
+}
+
+table caption {
+    font-size: 2em;
+    margin: 5px 0;
+    font-weight: bold;
+    background: #3b7a57; /* Verde suave */
+    color: #ffffff;
+}
+
+th, td {
+    text-align: center;
+    border-bottom: 1px solid #dddddd; /* Cinza claro */
+}
+
+th {
+    background-color: #e0e0e0; /* Cinza muito claro */
+    font-weight: bold;
+}
+
+td {
+    background-color: #ffffff;
+}
+
+tr:nth-child(even) td {
+    background-color: #f9f9f9; /* Alternar cor de linha */
+}
+
+/* Estilos para Links de Ação */
+a.a-editar, a.a-excluir {
+    text-decoration: none;
+    padding: 8px 12px;
+    border-radius: 4px;
+    color: #ffffff;
+    margin: 0 5px;
+    display: inline-block;
+}
+
+a.a-editar {
+    background-color: #3b7a57; /* Verde suave */
+}
+
+a.a-editar:hover {
+    background-color: #2c5f2d; /* Verde mais escuro */
+}
+
+a.a-excluir {
+    background-color: #ff6f61; /* Coral */
+}
+
+a.a-excluir:hover {
+    background-color: #e55b53; /* Coral mais escuro */
+}
+
+/* Estilos Responsivos */
+@media screen and (max-width: 600px) {
+    table, thead, tbody, th, td, tr {
+        display: block;
+        width: 100%;
+    }
+
+    th {
+        position: absolute;
+        top: -9999px;
+        left: -9999px;
+    }
+
+    tr {
+        margin: 0 0 1rem 0;
+        border: 1px solid #ddd;
+    }
+
+    td {
+        border: none;
+        position: relative;
+        padding-left: 50%;
+        text-align: right;
+    }
+
+    td:before {
+        position: absolute;
+        top: 12px;
+        left: 12px;
+        width: calc(50% - 24px);
+        white-space: nowrap;
+        font-weight: bold;
+        text-align: left;
+    }
+
+    td:before {
+        content: attr(data-label);
+    }
+
+    a.a-editar, a.a-excluir {
+        display: block;
+        margin: 10px 0;
+        text-align: center;
+    }
+}
+
+.campo {
+    text-align: center;
+}
+
+.titulo-tabela {
+    background: #3b7a57; /* Verde suave */
+    border: 2px solid #dddddd; /* Cinza claro */
+    color: #ffffff;
+}
+
+/* Estilos para o Cabeçalho */
+header {
+    background-color: #3b7a57; /* Verde suave */
+    color: #ffffff;
+    padding: 10px 0;
+}
+
+header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+header h1 {
+    margin: 0;
+}
+
+header nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+header nav ul li {
+    margin-left: 20px;
+}
+
+header nav ul li a {
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+header nav ul li a:hover {
+    text-decoration: underline;
+}
+
+/* Estilos para o formulário */
+.form-container {
+    background-color: #ffffff;
+    padding: 20px;
+    border: 2px solid #dddddd; /* Cinza claro */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
+    border-radius: 5px;
+}
+
+.form-title {
+    font-size: 1.5em;
+    color: #3b7a57; /* Verde suave */
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    font-weight: bold;
+    color: #333333; /* Cinza escuro */
+}
+
+.form-group input,
+.form-group textarea,
+.form-group select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #dddddd; /* Cinza claro */
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.form-group2 {
+    margin-bottom: 15px;
+    align-items: center;
+    align-content: center;
+    text-align: center;
+}
+
+.form-group2 label {
+    font-weight: bold;
+    color: #333333; /* Cinza escuro */
+}
+
+.form-group2 input,
+.form-group2 textarea,
+.form-group2 select {
+    width: 50%;
+    padding: 10px;
+    border: 1px solid #dddddd; /* Cinza claro */
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+.form-buttons {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.btn {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1em;
+    display: inline-block;
+    text-decoration: none;
+}
+
+.btn-primary {
+    background-color: #3b7a57; /* Verde suave */
+    color: #ffffff;
+}
+
+.btn-primary:hover {
+    background-color: #2c5f2d; /* Verde mais escuro */
+}
+
+.btn-secondary {
+    background-color: #ff6f61; /* Coral */
+    color: #ffffff;
+}
+
+.btn-secondary:hover {
+    background-color: #e55b53; /* Coral mais escuro */
+}
+
+/* Estilos para a página de detalhes do produto */
+.page-title {
+    font-size: 2em;
+    color: #3b7a57; /* Verde suave */
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.detail-group {
+    width: 50%;
+    margin-bottom: 15px;
+}
+
+.detail-title {
+    text-align: center;
+    font-weight: bold;
+    background-color: #3b7a57; /* Verde suave */
+    margin-bottom: 5px;
+    color: #ffffff;
+    font-size: 20px;
+    border: 1px solid #dddddd; /* Cinza claro */
+    border-radius: 4px;
+}
+
+.detail-content {
+    text-align: center;
+    background-color: #f9f9f9; /* Alternar cor de linha */
+    padding: 5px;
+    border: 1px solid #dddddd; /* Cinza claro */
+    border-radius: 4px;
+}
+
+.btn-secondary {
+    background-color: #ff6f61; /* Coral */
+    color: #ffffff;
+    text-align: center;
+}
+
+.btn-secondary:hover {
+    background-color: #e55b53; /* Coral mais escuro */
+}
+
+/* Estilos Gerais do Menu */
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+li {
+    display: inline-block;
+    position: relative;
+}
+
+a {
+    display: block;
+    padding: 10px;
+    color: #ffffff;
+    text-decoration: none;
+    background-color: #3b7a57; /* Verde suave */
+}
+
+a:hover {
+    background-color: #2c5f2d; /* Verde mais escuro */
+}
+
+
+/* Estilos do Dropdown */
+.dropdown {
+    display: inline-block;
+}
+
+.dropbtn {
+    all: unset;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.dropbtn:hover{
+    all: unset;
+    font-weight: bold;
+    text-decoration: underline;
+    cursor:pointer;
+    color: #cccccc;
+}
+/* Esconde o dropdown por padrão */
+.dropdown-content {
+    border: 1px solid #dddddd; /* Cinza claro */
+    border-radius: 4px;
+    display: none;
+    position: absolute;
+    background-color: #ffffff;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.dropdown-content a {
+    border: 1px solid #dddddd; /* Cinza claro */
+    border-radius: 4px;
+    color: #333333; /* Cinza escuro */
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+}
+
+.dropdown-content a:hover {
+
+    font-weight: bold;
+    text-decoration: underline;
+    cursor:pointer;
+    color: #cccccc;
+    background-color:#3b7a57
+}
+
+/* Exibe o dropdown ao passar o mouse */
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+
+/* Estilo para o botão de logout como texto em branco */
+#logout-form button {
+    background: none; /* Remove o fundo do botão */
+    border: none; /* Remove a borda do botão */
+    color: #ffffff; /* Define a cor do texto como branco */
+    font-size: 1em; /* Ajuste o tamanho da fonte conforme necessário */
+    cursor: pointer; /* Altera o cursor para uma mãozinha ao passar sobre o texto */
+    text-decoration: none; /* Adiciona um sublinhado ao texto */
+    padding: 0; /* Remove o padding do botão */
+    margin: 0; /* Remove a margem do botão */
+    font-weight: bold;
+}
+
+/* Adiciona um efeito de hover */
+#logout-form button:hover {
+    text-decoration: underline;
+    color: #cccccc; /* Muda a cor do texto ao passar o mouse */
+}
+
+#logout-form {
+    display: inline-block; /* Garante que o formulário se comporte como um item inline */
+    vertical-align: middle; /* Alinha o formulário verticalmente com o meio dos outros itens */
+    margin: 0; /* Remove qualquer margem extra */
+    padding: 0; /* Remove qualquer padding extra */
+}
+
+header nav ul {
+    display: flex; /* Usa Flexbox para o menu */
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    align-items: center; /* Garante que todos os itens sejam alinhados verticalmente ao centro */
+}
+
+header nav ul li {
+    margin-left: 20px;
+    display: flex; /* Garante que os itens se comportem como itens flexíveis */
+    align-items: center; /* Alinha os itens verticalmente ao centro */
+}
+
+#logout-form {
+    display: flex; /* Usa Flexbox para alinhar o formulário */
+    align-items: center; /* Alinha o formulário verticalmente ao centro */
+}
+
+.btn-login {
+    background-color: #2c5f2d; /* Verde mais escuro */
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1em;
+    display: inline-block;
+    text-decoration: none;
+    color: #ffffff;
+}
+
+/* Estilos para o formulário de pesquisa */
+.search-form {
+    display: flex; /* Usa Flexbox para alinhar o input e o botão */
+    justify-content: center; /* Centraliza o conteúdo horizontalmente */
+    margin: 20px 0; /* Margem superior e inferior */
+}
+
+.search-input {
+    padding: 10px;
+    border: 1px solid #dddddd; /* Cinza claro */
+    border-radius: 4px;
+    font-size: 1em;
+    width: 300px; /* Largura do campo de pesquisa */
+    box-sizing: border-box;
+}
+
+.search-button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    background-color: #3b7a57; /* Verde suave */
+    color: #ffffff;
+    font-size: 1em;
+    cursor: pointer;
+    margin-left: 10px; /* Espaço entre o campo de pesquisa e o botão */
+    transition: background-color 0.3s, border-radius 0.3s; /* Transições para o efeito hover */
+}
+
+.search-button:hover {
+    background-color: #2c5f2d; /* Verde mais escuro ao passar o mouse */
+    border-radius: 8px; /* Arredondamento ao passar o mouse */
+}
+
+/* Estilos do slider */
+.image-slider {
+    position: relative;
+    width: 100%;
+    max-width: 800px; /* Largura máxima do slider */
+    margin: auto; /* Centraliza o slider na página */
+    overflow: hidden; /* Esconde as imagens que saem da área do slider */
+    border: 1px solid #ddd; /* Borda leve ao redor do slider */
+    border-radius: 8px; /* Bordas arredondadas */
+}
+
+/* Estilos dos slides */
+.slides {
+    display: flex;
+    transition: transform 1s ease-in-out; /* Transição suave ao mudar de slide */
+}
+
+/* Estilos de cada slide */
+.slide {
+    min-width: 100%;
+    box-sizing: border-box;
+}
+
+.slide img {
+    width: 100%;
+    display: block;
+}
+
+/* Configura a animação automática */
+@keyframes slide {
+    0% { transform: translateX(0); }
+    10% { transform: translateX(-100%); }
+    20% { transform: translateX(-200%); }
+    30% { transform: translateX(-300%); }
+    40% { transform: translateX(-400%); }
+    50% { transform: translateX(-500%); }
+    60% { transform: translateX(-600%); }
+    70% { transform: translateX(-700%); }
+    80% { transform: translateX(-800%); }
+    90% { transform: translateX(-900%); }
+
+}
+
+/* Aplica a animação aos slides */
+.slides {
+    animation: slide 35s infinite;
+}
+
+.links{
+    all: unset;
+    color:blue;
+}
+.links:hover{
+    all: unset;
+    text-decoration: underline;
+    cursor:pointer;
+    color:blue;
+}
+
+.links-menu{
+    all: unset;
+    font-weight: bold;
+}
+
+.links-menu:hover{
+    all: unset;
+    font-weight: bold;
+    text-decoration: underline;
+    cursor:pointer;
+    color: #cccccc;
+}

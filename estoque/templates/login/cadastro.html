@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% block title %} Cadastro de usuário {% endblock title %}
+{% block content %}
+  <div class="registration-container">
+
+    <form method="post">
+      {% csrf_token %}
+      <div class="form-group2">
+        <h2>Cadastro de usuário</h2>
+        <label for="{{ form.username.id_for_label }}">Nome de Usuário</label><br>
+        {{ form.username }}
+      </div>
+      <div class="form-group2">
+        <label for="{{ form.email.id_for_label }}">Email</label><br>
+        {{ form.email }}
+      </div>
+      <div class="form-group2">
+        <label for="{{ form.password1.id_for_label }}">Senha</label><br>
+        {{ form.password1 }}
+      </div>
+      <div class="form-group2">
+        <label for="{{ form.password2.id_for_label }}">Confirme a Senha</label><br>
+        {{ form.password2 }}
+        <br><br>
+        <button class="btn-login" type="submit">Criar conta</button><br><br>
+        <a  class="btn-login" href="{% url 'login' %}">Voltar</a>
+      </div>
+
+    </form>
+  </div>
+{% endblock %}

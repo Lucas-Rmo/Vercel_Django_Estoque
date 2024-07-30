@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container">
+    <h2>Lista de Entradas</h2>
+    <center>
+    <form class="search-form" method="get" action="{% url 'listar_entradas' %}">
+        <input class="search-input" type="text" name="q" placeholder="Pesquisar por produto" value="{{ request.GET.q }}">
+        <button class="search-button" type="submit">Pesquisar</button>
+      </form>
+    </center>
+    <table>
+        <thead>
+            <tr>
+                <th>Produto</th>
+                <th>Quantidade</th>
+                <th>Data</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for entrada in entradas %}
+            <tr>
+                <td>{{ entrada.produto.nome }}</td>
+                <td>{{ entrada.quantidade }}</td>
+                <td>{{ entrada.data }}</td>
+            </tr>
+            {% empty %}
+            <tr>
+                <td colspan="3">Nenhuma entrada registrada.</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <a href="{% url 'Listar_produtos' %}" class="btn btn-secondary">Voltar</a>
+</div>
+{% endblock content %}
